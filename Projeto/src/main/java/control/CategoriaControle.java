@@ -2,8 +2,6 @@ package control;
 
 import java.util.List;
 import model.Categoria;
-import model.Inscricao;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -18,7 +16,7 @@ public class CategoriaControle {
 		em = emf.createEntityManager();
 	}
 
-}
+
 
 	public void inserir(Categoria obj) {
 		   try {

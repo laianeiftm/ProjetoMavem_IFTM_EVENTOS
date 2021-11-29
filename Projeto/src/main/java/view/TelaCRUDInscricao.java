@@ -14,6 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCRUDInscricao extends JInternalFrame {
 	private JTextField textCodInscricao;
@@ -46,6 +48,11 @@ public class TelaCRUDInscricao extends JInternalFrame {
 		getContentPane().add(PainelCampos, BorderLayout.WEST);
 		
 		JButton btnFechar = new JButton("Fechar");
+		btnFechar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose ();
+			}
+		});
 		btnFechar.setForeground(Color.RED);
 		
 		JLabel lblCodInscricao = new JLabel("Cod Inscri\u00E7\u00E3o: ");
