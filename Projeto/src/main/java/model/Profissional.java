@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import control.ProfissionalControle;
+
 @Entity
 public class Profissional implements Serializable{	
 	private static final long serialVersionUID = 1L;
@@ -16,6 +18,8 @@ public class Profissional implements Serializable{
 	private Integer codProfissional; 
 	private String linkLates;
 	private String miniCurriculo;
+	private Profissional objeto; 
+	private ProfissionalControle controle = new ProfissionalControle ();
 	
 	public Profissional(Integer codProfissional, String linkLates, String miniCurriculo) {
 		super();

@@ -1,26 +1,33 @@
 package view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JInternalFrame;
-import javax.swing.JButton;
 import java.awt.BorderLayout;
-import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Font;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import control.InscricaoControle;
+import model.Inscricao;
+import model.Profissional;
 
 public class TelaCRUDInscricao extends JInternalFrame {
 	private JTextField textCodInscricao;
 	private JTextField textDataInscricao;
 	private JTextField textValorPago;
+	private Inscricao objeto; 
+	private InscricaoControle controle = new InscricaoControle ();
 
 	/**
 	 * Launch the application.
@@ -37,7 +44,12 @@ public class TelaCRUDInscricao extends JInternalFrame {
 			}
 		});
 	}
-
+public void limparTela () {
+	  objeto = null;
+	  textCodInscricao.setText("");
+	  textDataInscricao.setText("");
+	  textValorPago.setText("");
+}
 	/**
 	 * Create the frame.
 	 */
@@ -50,6 +62,7 @@ public class TelaCRUDInscricao extends JInternalFrame {
 		JButton btnFechar = new JButton("Fechar");
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				dispose ();
 			}
 		});
@@ -66,12 +79,61 @@ public class TelaCRUDInscricao extends JInternalFrame {
 		textDataInscricao.setColumns(10);
 		
 		JButton btninserir = new JButton("Inserir");
+		btninserir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				objeto = new Inscricao(null, textDataInscricao.getText(),textValorPago.getText());
+				controle.inserir(objeto);
+				JOptionPane.showMessageDialog(null, "Inscrição cadastrada com sucesso");
+			
+			}
+		});
 		
 		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (objeto!=null) {
+					controle.excluir(objeto);
+			     
+					JOptionPane.showMessageDialog(null, "Inscrição excluída com sucesso.");
+			}else {
+					JOptionPane.showMessageDialog(null, "Não há Inscrição a ser excluída.");
+				}
+				   limparTela ();
+		
+				}
+		});
 		
 		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Integer valor = Integer.parseInt(textCodInscricao.getText());
+	            objeto =  controle.buscarPorId(valor);
+	            if (objeto!=null) {					
+	            textCodInscricao.setText(String.valueOf(objeto.getCodInscricao()));
+	            	textDataInscricao.setText(objeto.getDtIncricao());
+	            	textValorPago.setText(objeto.getValorPago());
+	            	}else {
+	            		JOptionPane.showMessageDialog(null, "Não existe Inscrição com esse código");
+	            		textCodInscricao.setText("");
+	            	
+			}}
+		});
 		
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+								if (objeto!=null) {
+						objeto.setDtIncricao(textDataInscricao.getText());
+						objeto.setValorPago(textValorPago.getText());
+						controle.alterar(objeto);
+						JOptionPane.showMessageDialog(null, "Inscrição alterada com sucesso.");
+					}else {
+						JOptionPane.showMessageDialog(null, "Não há Inscrição a ser modificada.");
+						limparTela();
+					}
+		
+				}
+			});
 		
 		JLabel lblTitulo = new JLabel("Inscri\u00E7\u00E3o");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);

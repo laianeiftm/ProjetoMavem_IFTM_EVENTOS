@@ -16,9 +16,9 @@ public class Inscricao implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 private Integer codInscricao;
 private String dtIncricao;
-private float valorPago;
+private String valorPago;
 
-public Inscricao(Integer codInscricao, String dtIncricao, float valorPago) {
+public Inscricao(Integer codInscricao, String dtIncricao, String valorPago) {
 	super();
 	this.codInscricao = codInscricao;
 	this.dtIncricao = dtIncricao;
@@ -44,11 +44,11 @@ public void setDtIncricao(String dtIncricao) {
 	this.dtIncricao = dtIncricao;
 }
 
-public float getValorPago() {
+public String getValorPago() {
 	return valorPago;
 }
 
-public void setValorPago(float valorPago) {
+public void setValorPago(String valorPago) {
 	this.valorPago = valorPago;
 }
 
