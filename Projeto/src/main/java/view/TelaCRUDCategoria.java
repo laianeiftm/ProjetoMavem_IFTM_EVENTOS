@@ -95,9 +95,9 @@ public class TelaCRUDCategoria extends JInternalFrame {
 				if (objeto != null) {
 					controle.excluir(objeto);
 
-					JOptionPane.showMessageDialog(null, "Categoria excluída com sucesso.");
+					JOptionPane.showMessageDialog(null, "Categoria excluï¿½da com sucesso.");
 				} else {
-					JOptionPane.showMessageDialog(null, "Não há Categoria  a ser excluída.");
+					JOptionPane.showMessageDialog(null, "Nï¿½o hï¿½ Categoria  a ser excluï¿½da.");
 				}
 				limparTela();
 
@@ -113,7 +113,7 @@ public class TelaCRUDCategoria extends JInternalFrame {
 					textID.setText(String.valueOf(objeto.getCodCategoria()));
 					textTipo.setText(objeto.getTipo());
 				} else {
-					JOptionPane.showMessageDialog(null, "Não existe Categoria com esse código");
+					JOptionPane.showMessageDialog(null, "Nï¿½o existe Categoria com esse cï¿½digo");
 					textID.setText("");
 
 				}
@@ -128,7 +128,7 @@ public class TelaCRUDCategoria extends JInternalFrame {
 					controle.alterar(objeto);
 					JOptionPane.showMessageDialog(null, "Categoria alterada com sucesso.");
 				} else {
-					JOptionPane.showMessageDialog(null, "Não há Categoriaa a ser modificada.");
+					JOptionPane.showMessageDialog(null, "Nï¿½o hï¿½ Categoriaa a ser modificada.");
 					limparTela();
 				}
 

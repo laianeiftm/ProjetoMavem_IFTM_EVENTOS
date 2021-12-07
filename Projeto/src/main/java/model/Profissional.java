@@ -18,8 +18,8 @@ public class Profissional implements Serializable{
 	private Integer codProfissional; 
 	private String linkLates;
 	private String miniCurriculo;
-	private Profissional objeto; 
-	private ProfissionalControle controle = new ProfissionalControle ();
+	//private Profissional objeto; 
+    //private ProfissionalControle controle = new ProfissionalControle ();
 	
 	public Profissional(Integer codProfissional, String linkLates, String miniCurriculo) {
 		super();
