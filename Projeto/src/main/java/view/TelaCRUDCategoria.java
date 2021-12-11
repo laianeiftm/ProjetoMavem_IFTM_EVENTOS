@@ -85,7 +85,7 @@ public class TelaCRUDCategoria extends JInternalFrame {
 				objeto = new Categoria(null, textTipo.getText());
 				controle.inserir(objeto);
 				JOptionPane.showMessageDialog(null, "Categoria cadastrada com sucesso");
-
+				limparTela();
 			}
 		});
 
@@ -115,7 +115,7 @@ public class TelaCRUDCategoria extends JInternalFrame {
 				} else {
 					JOptionPane.showMessageDialog(null, "N�o existe Categoria com esse c�digo");
 					textID.setText("");
-
+					limparTela();
 				}
 			}
 		});
