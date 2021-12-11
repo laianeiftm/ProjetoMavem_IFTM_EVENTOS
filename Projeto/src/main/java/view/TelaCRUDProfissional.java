@@ -77,7 +77,7 @@ public class TelaCRUDProfissional extends JInternalFrame {
 				objeto = new Profissional(null, textLinklattes.getText(), textMiniCurriculo.getText());
 				controle.inserir(objeto);
 				JOptionPane.showMessageDialog(null, "Profissional cadastrado com sucesso");
-			
+				   limparTela ();
 			}
 		});
 		
@@ -125,7 +125,7 @@ public class TelaCRUDProfissional extends JInternalFrame {
 	            		JOptionPane.showMessageDialog(null, "Não existe Profissional com esse código");
 	            		textIDProfissional.setText("");
 	            	}
-
+	            limparTela ();
 			}
 		});
 		

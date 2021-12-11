@@ -84,7 +84,7 @@ public void limparTela () {
 				objeto = new Inscricao(null, textDataInscricao.getText(),textValorPago.getText());
 				controle.inserir(objeto);
 				JOptionPane.showMessageDialog(null, "Inscrição cadastrada com sucesso");
-			
+				   limparTela ();
 			}
 		});
 		
@@ -115,7 +115,7 @@ public void limparTela () {
 	            	}else {
 	            		JOptionPane.showMessageDialog(null, "Não existe Inscrição com esse código");
 	            		textCodInscricao.setText("");
-	            	
+	            		   limparTela ();
 			}}
 		});
 		
