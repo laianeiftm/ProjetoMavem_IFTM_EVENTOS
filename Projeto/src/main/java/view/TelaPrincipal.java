@@ -98,6 +98,17 @@ public class TelaPrincipal {
 		});
 		mnNewMenu.add(menuProfissional);
 		
+		JMenuItem menuCertificado = new JMenuItem("Certificado");
+		menuCertificado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCRUDCertificado tela = new TelaCRUDCertificado();
+				tela.setVisible(true);
+				desktop.add(tela);
+				
+			}
+		});
+		mnNewMenu.add(menuCertificado);
+		
 		JSeparator separator = new JSeparator();
 		mnNewMenu.add(separator);
 		
